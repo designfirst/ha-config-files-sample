@@ -1,0 +1,20 @@
+designfirst:
+  name: designfirst
+  mac: 
+  picture: 
+  track: no
+  hide_if_away: yes
+
+iphone6s:
+  name: Jaret
+  mac: 
+  picture: https://scontent-ord1-1.xx.fbcdn.net/hphotos-xtf1/v/t1.0-9/12650969_10208908372970525_5159197819773757664_n.jpg?oh=16f0dc71659ebcb1d516da4f3accf52f&oe=575ECADB
+  track: yes
+  hide_if_away: no
+
+19216812:
+  name: Dave
+  mac: 00:17:88:19:0B:5C
+  picture: http://a4.files.biography.com/image/upload/c_fill,cs_srgb,dpr_1.0,g_face,h_300,q_80,w_300/MTE5NDg0MDU1MzY3ODEyNjIz.jpg
+  track: yes
+  hide_if_away: yes

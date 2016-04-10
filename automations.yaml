@@ -1,0 +1,111 @@
+#################################################################
+## Automations
+#################################################################
+
+- alias: morning-lights
+  trigger:
+    platform: time
+    after: '5:30:00'
+  condition:
+    platform: state
+    entity_id: device_tracker.iphone6s
+    state: home
+  action:
+    service: scene.turn_on
+    entity_id: scene.morninglights
+
+- alias: bedroom-wakeup-lights
+  trigger:
+    platform: time
+    after: '5:30:00'
+  condition:
+    platform: state
+    entity_id: device_tracker.iphone6s
+    state: home
+  action:
+    service: scene.turn_on
+    entity_id: scene.wakeuplights
+
+
+- alias: turn-lights-ON-when-i-get-home
+  trigger:
+    platform: zone
+    entity_id: device_tracker.iphone6s
+    zone: zone.home
+    event: enter
+  action:
+    service: scene.turn_on
+    entity_id: scene.welcomeback
+
+- alias: turn-music-ON-when-i-get-home
+  trigger:
+    platform: zone
+    entity_id: device_tracker.iphone6s
+    zone: zone.home
+    event: enter
+  condition:
+    platform: time
+    before: '22:30:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.livingroommusic
+
+- alias: turn-lights-OFF-when-i-leave
+  trigger:
+    platform: zone
+    entity_id: device_tracker.iphone6s
+    zone: zone.home
+    event: leave
+  action:
+    service: scene.turn_on
+    entity_id: scene.goodbye
+
+
+- alias: bedtime-lights
+  trigger:
+    platform: time
+    after: '21:00:00'
+  action:
+    service: scene.turn_on
+    entity_id: scene.bedtimelights
+
+
+- alias: lights-off
+  trigger:
+    platform: time
+    after: '23:30:00'
+  condition:
+    platform: state
+    entity_id: device_tracker.iphone6s
+    state: home
+  action:
+    service: homeassistant.turn_off
+    entity_id: group.all_lights
+
+- alias: when-front-door-opens-turn-lights-on-for-guests
+  trigger:
+    platform: state
+    entity_id: binary_sensor.aeotec_doorwindow_sensor_sensor_2
+    from: 'off'
+    to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timed_lamp
+
+
+
+# Heal the zwave network 
+- alias: soft reset at 2:30am
+  trigger:
+    platform: time
+    after: '2:30:00'
+  action:
+    service: zwave.soft_reset
+
+- alias: heal at 2:31am
+  trigger:
+    platform: time
+    after: '2:31:00'
+  action:
+    service: zwave.heal_network
+

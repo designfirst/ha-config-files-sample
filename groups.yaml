@@ -1,0 +1,49 @@
+#################################################################
+## Groups
+#################################################################
+
+all_scenes:
+  - scene.welcomeback
+  - scene.goodbye
+  - scene.movietime
+  - scene.bedtimelights
+  - scene.wakeuplights
+  - scene.morninglights
+  - scene.livingroommusic
+livingroom:
+  - light.fc
+  - light.fr
+  - light.fl
+  - light.rc
+  - light.rr
+  - light.rl
+  - media_player.living_room
+bedroom:
+  - light.bedroom_1
+  - light.bedroom_2
+  - light.bedroom_3
+  - light.bedroom_4
+  - media_player.jarets_bedroom
+table_lamp:
+  - light.table_lamp
+kitchen:
+  - light.kitchen_sink
+front_door:
+  - light.front_door_1
+  - light.front_door_2
+livingroom__lights:
+  - light.fc
+  - light.fr
+  - light.fl
+  - light.rc
+  - light.rr
+  - light.rl
+bedroom__lights:
+  - light.bedroom_1
+  - light.bedroom_2
+  - light.bedroom_3
+  - light.bedroom_4
+Scenes:
+  view: yes
+  icon: 'mdi:camera-iris'
+  entities: group.all_scenes

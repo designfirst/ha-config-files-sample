@@ -1,0 +1,75 @@
+#################################################################
+## Scenes
+#################################################################
+
+- name: welcome-back
+  entities:
+    group.all_lights:
+      state: "on"
+      brightness: 138
+      xy_color: [0.5134, 0.4149]
+    group.bedroom__lights:
+      state: "on"
+      brightness: 10
+      xy_color: [0.5321, 0.3685]
+
+- name: livingroom-music
+  entities:
+    media_player.living_room:
+      state: "playing"
+      data:
+        volume_set.volume_level: 0.08
+
+- name: good-bye
+  entities:
+    group.all_lights:
+      state: "off"
+    media_player.living_room:
+      state: "paused"
+    media_player.jarets_bedroom:
+      state: "paused"
+    media_player.patio:
+      state: "paused"
+
+- name: movie-time
+  entities:
+    group.bedroom__lights:
+      state: "off"
+    group.front_door:
+      state: "off"
+    group.livingroom__lights:
+      state: "on"
+      brightness: 10
+      xy_color: [0.5321, 0.3685]
+    light.kitchen_sink:
+      state: "off"
+    light.table_lamp:
+      state: "off"
+
+- name: bedtime-lights
+  entities:
+    group.bedroom__lights:
+      state: "on"
+      brightness: 10
+      xy_color: [0.5321, 0.3685]
+      transition: 2
+
+- name: wakeup-lights
+  entities:
+    group.bedroom__lights:
+      state: "on"
+      brightness: 255
+      xy_color: [0.3292,0.3285]
+      transition: 900
+    media_player.jarets_bedroom:
+      state: "playing"
+
+- name: morning-lights
+  entities:
+    group.front_door:
+      state: "on"
+      brightness: 40
+    light.table_lamp:
+      state: "on"
+    light.kitchen_sink:
+      state: "on"

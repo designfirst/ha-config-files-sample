@@ -1,0 +1,118 @@
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # C for Celcius, F for Fahrenheit
+  temperature_unit: F
+  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: EST
+
+  latitude: [redacted]
+  longitude: [redacted]
+
+# customize: !include customize.yaml
+
+# Discover some devices automatically
+#discovery:
+
+# Enables support for tracking state changes over time.
+history:
+
+# Enables the frontend
+frontend:
+
+# View all events in a logbook
+logbook:
+
+# Checks for available updates
+updater:
+
+nest:
+  username: [redacted]
+  password: [redacted]
+
+zone:
+  name: Home
+  latitude: [redacted]
+  longitude: [redacted]
+  radius: 150
+
+
+device_tracker:
+  platform: icloud
+  username: [redacted]
+  password: [redacted]
+
+  # Optional configuration
+  # If new discovered devices are tracked by default (default: yes)
+  track_new_devices: yes
+  # Seconds between each scan for new devices (default: 12)
+  interval_seconds: 0
+  # Seconds to wait till marking someone as not home after not being seen
+  # (default: 180)
+  consider_home: 10
+
+
+# Weather Forcast
+sensor 1:
+  platform: forecast
+  api_key: [redacted]
+  monitored_conditions:
+    # - summary
+    - icon
+    # - nearest_storm_distance
+    # - nearest_storm_bearing
+    # - precip_type
+    # - precip_intensity
+    # - precip_probability
+    - temperature
+    # - apparent_temperature
+    # - dew_point
+    # - wind_speed
+    # - wind_bearing
+    # - cloud_cover
+    # - humidity
+    # - pressure
+    # - visibility
+    # - ozone
+
+sensor 2:
+  platform: time_date
+  display_options:
+    - 'time'
+
+sun:
+  elevation: 123
+
+
+light 1:
+  platform: hue
+light 2:
+  platform: lifx
+
+
+media_player:
+  platform: sonos
+
+
+# notify:
+#   platform: instapush
+#   name: home
+#   api_key:  [redacted]
+#   app_secret: [redacted]
+  # event: "home-event"
+  # tracker: "scene"
+
+
+zwave:
+  usb_path: /dev/zwave
+  config_path: /usr/local/lib/python3.4/dist-packages/libopenzwave-0.3.0b8-py3.4-linux-armv7l.egg/config
+  polling_interval: 30000
+  customize:
+    binary_sensor.__sensor_2:
+        polling_intensity: 4
+
+# Import groups, scenes, and automations
+script: !include scripts.yaml
+group: !include groups.yaml
+scene: !include scenes.yaml
+automation: !include automations.yaml
